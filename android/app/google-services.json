@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "937161589435",
-    "project_id": "smart-photo-app",
-    "storage_bucket": "smart-photo-app.firebasestorage.app"
+    "project_number": "357403153157",
+    "project_id": "smartphotoapp-8f238",
+    "storage_bucket": "smartphotoapp-8f238.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:937161589435:android:d0e5e1c5a2feb59b949f9e",
+        "mobilesdk_app_id": "1:357403153157:android:d0f9f5aa3f4dc491115d6c",
         "android_client_info": {
           "package_name": "com.example.smart_photo_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDjqirOBPG2lPtg4pfpJ2aKs-DJH27PJtk"
+          "current_key": "AIzaSyCFNqpYo6KXJsnhjSAcIkYKUZ1cHDdemQ8"
         }
       ],
       "services": {

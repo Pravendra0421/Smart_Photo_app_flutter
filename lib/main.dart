@@ -7,6 +7,7 @@ import 'routes.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
+    name: "smart-photo-app",
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());

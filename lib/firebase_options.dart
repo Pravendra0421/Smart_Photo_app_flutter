@@ -41,48 +41,48 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC_PIESXeh1pO2zuunGEC8rKYWEHa7dP1E',
-    appId: '1:937161589435:web:74cdca6952a5c89d949f9e',
-    messagingSenderId: '937161589435',
-    projectId: 'smart-photo-app',
-    authDomain: 'smart-photo-app.firebaseapp.com',
-    storageBucket: 'smart-photo-app.firebasestorage.app',
-    measurementId: 'G-1T3TZ5FC24',
+    apiKey: "AIzaSyDH6oBBSQzulyxS2sCeSR6Ql-aDLRAO3fI",
+    authDomain: "smartphotoapp-8f238.firebaseapp.com",
+    projectId: "smartphotoapp-8f238",
+    storageBucket: "smartphotoapp-8f238.firebasestorage.app",
+    messagingSenderId: "357403153157",
+    appId: "1:357403153157:web:48ec3ae14ae2020f115d6c",
+    measurementId: "G-RMP35MYBFR",
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDjqirOBPG2lPtg4pfpJ2aKs-DJH27PJtk',
-    appId: '1:937161589435:android:d0e5e1c5a2feb59b949f9e',
-    messagingSenderId: '937161589435',
-    projectId: 'smart-photo-app',
-    storageBucket: 'smart-photo-app.firebasestorage.app',
+    apiKey: "AIzaSyDH6oBBSQzulyxS2sCeSR6Ql-aDLRAO3fI",
+    appId: "1:357403153157:web:48ec3ae14ae2020f115d6c",
+    messagingSenderId: "357403153157",
+    projectId: "smartphotoapp-8f238",
+    storageBucket: "smartphotoapp-8f238.firebasestorage.app",
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDcTOOz0EyM6fZxaD86QFk4Vm-seSIso-U',
-    appId: '1:937161589435:ios:feaeefc7f52eb856949f9e',
-    messagingSenderId: '937161589435',
-    projectId: 'smart-photo-app',
-    storageBucket: 'smart-photo-app.firebasestorage.app',
+    apiKey: "AIzaSyDH6oBBSQzulyxS2sCeSR6Ql-aDLRAO3fI",
+    appId: "1:357403153157:web:48ec3ae14ae2020f115d6c",
+    messagingSenderId: "357403153157",
+    projectId: "smartphotoapp-8f238",
+    storageBucket: "smartphotoapp-8f238.firebasestorage.app",
     iosBundleId: 'com.example.smartPhotoApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDcTOOz0EyM6fZxaD86QFk4Vm-seSIso-U',
-    appId: '1:937161589435:ios:feaeefc7f52eb856949f9e',
-    messagingSenderId: '937161589435',
-    projectId: 'smart-photo-app',
-    storageBucket: 'smart-photo-app.firebasestorage.app',
+    apiKey: "AIzaSyDH6oBBSQzulyxS2sCeSR6Ql-aDLRAO3fI",
+    appId: "1:357403153157:web:48ec3ae14ae2020f115d6c",
+    messagingSenderId: "357403153157",
+    projectId: "smartphotoapp-8f238",
+    storageBucket: "smartphotoapp-8f238.firebasestorage.app",
     iosBundleId: 'com.example.smartPhotoApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyC_PIESXeh1pO2zuunGEC8rKYWEHa7dP1E',
-    appId: '1:937161589435:web:ca1b9d39dbc34d04949f9e',
-    messagingSenderId: '937161589435',
-    projectId: 'smart-photo-app',
-    authDomain: 'smart-photo-app.firebaseapp.com',
-    storageBucket: 'smart-photo-app.firebasestorage.app',
-    measurementId: 'G-MV8R5ZYYTP',
+    apiKey: "AIzaSyDH6oBBSQzulyxS2sCeSR6Ql-aDLRAO3fI",
+    authDomain: "smartphotoapp-8f238.firebaseapp.com",
+    projectId: "smartphotoapp-8f238",
+    storageBucket: "smartphotoapp-8f238.firebasestorage.app",
+    messagingSenderId: "357403153157",
+    appId: "1:357403153157:web:32ac20b5c9dbd3a3115d6c",
+    measurementId: "G-DCVV115BRK",
   );
 }
