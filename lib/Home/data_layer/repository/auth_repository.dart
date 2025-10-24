@@ -7,7 +7,7 @@ class AuthRepository {
   Future<UserModel> fetchCurrentUser() async {
     try {
       final response = await _apiService.get("user/getprofile");
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201) {
         final userData = json.decode(response.body);
         return UserModel.fromJson(userData);
       } else {

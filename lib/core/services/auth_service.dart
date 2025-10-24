@@ -11,7 +11,7 @@ class AuthService extends GetxService {
     try {
       final userProfile = await _repository.fetchCurrentUser();
       currentUser.value = userProfile;
-      print("User profile set successfully! DB ID: ${currentUser.value?.id}");
+
     } catch (e) {
       print("Error in AuthService: $e");
     }

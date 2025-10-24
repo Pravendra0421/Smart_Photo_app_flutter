@@ -120,6 +120,7 @@ class SmartAppController extends GetxController {
         if (success) {
           print("Backend registration/login successful.");
           await Get.find<AuthService>().fetchAndSetCurrentUser();
+
           // Navigate to the home screen
           Get.offAllNamed(AppRoutes.HOME);
         } else {

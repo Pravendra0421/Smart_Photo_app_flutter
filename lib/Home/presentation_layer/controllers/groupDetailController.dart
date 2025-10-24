@@ -37,7 +37,7 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
   void _processPhotos(List<PhotoModel> allPhotos) {
     final AuthService authService = Get.find<AuthService>();
     final String? currentUserDbId = authService.currentUser.value?.id;
-      if(currentUserDbId != null){
+    if(currentUserDbId != null){
         myUploads.value = allPhotos.where((p)=>p.uploadedById == currentUserDbId).toList();
       }
       photosByDate.value = groupBy(allPhotos, (PhotoModel p) => p.createdAt.split('T')[0]);
