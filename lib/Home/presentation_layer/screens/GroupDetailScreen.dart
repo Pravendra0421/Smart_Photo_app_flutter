@@ -22,7 +22,7 @@ class GroupDetailScreen extends StatelessWidget {
           ],
         )),
         actions: [
-          IconButton(icon: const Icon(Icons.share_outlined), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.share_outlined), onPressed: controller.navigateToShareDetail,),
           IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
         ],
         bottom: TabBar(

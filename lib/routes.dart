@@ -7,6 +7,7 @@ import 'onboarding/presentation_layer/screens/phoneLogin_screen.dart';
 import 'Home/presentation_layer/screens/home_screen.dart';
 import 'Home/presentation_layer/screens/create_group_screen.dart';
 import 'Home/presentation_layer/screens/GroupDetailScreen.dart';
+import 'Home/presentation_layer/screens/shareDetailScreen.dart';
 class AppRoutes {
   static const ONBOARDING ='/onboarding';
   static const LOGIN = '/login';
@@ -14,6 +15,7 @@ class AppRoutes {
   static const PHONELOGIN ='/phonelogin';
   static const CREATEGROUP = '/create-group';
   static const GROUPDETAIL ='/group-detail';
+  static const SHAREDETAIL ='/share-detail';
 }
 
 class AppPages {
@@ -41,6 +43,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.GROUPDETAIL,
         page: ()=>GroupDetailScreen(),
+    ),
+    GetPage(
+        name: AppRoutes.SHAREDETAIL,
+        page: ()=>shareDetailScreen(),
     ),
   ];
 }

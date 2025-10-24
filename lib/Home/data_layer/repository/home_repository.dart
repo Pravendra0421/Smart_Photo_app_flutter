@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/group_membership_model.dart';
 import '../../../core/services/api_service.dart';
 import '../models/groupDetail_model.dart';
+import '../models/share_model.dart';
 import 'dart:io';
 class HomeRepository{
   final ApiService _apiService = ApiService();
@@ -38,6 +39,19 @@ class HomeRepository{
       if(response.statusCode == 201){
         final jsonData = json.decode(response.body);
         return GroupDetailModel.fromJson(jsonData);
+      }else {
+        throw Exception('Failed to load group details. Status: ${response.statusCode}');
+      }
+    }catch (e) {
+      throw Exception('An error occurred while fetching group details: $e');
+    }
+  }
+  Future<shareModel> getShareDetail(String groupId) async {
+    try{
+      final response = await _apiService.get("share-detail/$groupId");
+      if(response.statusCode == 201){
+        final jsonData = json.decode(response.body);
+        return shareModel.fromJson(jsonData);
       }else {
         throw Exception('Failed to load group details. Status: ${response.statusCode}');
       }

@@ -7,6 +7,7 @@ import '../../data_layer/models/groupDetail_model.dart';
 import '../../data_layer/repository/home_repository.dart';
 import '../../data_layer/repository/auth_repository.dart';
 import '../../../core/services/auth_service.dart';
+import '../../../routes.dart';
 class GroupDetailController extends GetxController with GetSingleTickerProviderStateMixin{
   final HomeRepository repository = HomeRepository();
   final String groupId;
@@ -21,6 +22,9 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
     super.onInit();
     tabController = TabController(length: 4,vsync: this);
     fetchGroupDetails();
+  }
+  void navigateToShareDetail() async {
+    Get.offAllNamed(AppRoutes.SHAREDETAIL);
   }
   void fetchGroupDetails() async{
     try{
