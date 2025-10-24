@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../../data_layer/repository/onboarding_repository.dart';
 // You will have your own routes file.
 import '../../../routes.dart';
-
+import '../../../core/services/auth_service.dart';
 class SmartAppController extends GetxController {
   // Dependencies
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -102,15 +102,24 @@ class SmartAppController extends GetxController {
 
       if (user != null) {
         print("Firebase authentication successful. UID: ${user.uid}, Phone: ${user.phoneNumber}");
-
+        final String? idToken = await user.getIdToken();
+        if (idToken == null) {
+          Get.snackbar("Error", "Authentication token is not found.");
+          isLoading.value = false;
+          return;
+        }
+        print("Firebase ID Token: $idToken");
         // Now, send the UID and phone number to your backend
         bool success = await _repository.loginOrRegisterUser(
           uid: user.uid,
-          phoneNumber: user.phoneNumber!, // It's guaranteed to be non-null here
+          phoneNumber: user.phoneNumber!,
+          token:idToken,
+          // It's guaranteed to be non-null here
         );
 
         if (success) {
           print("Backend registration/login successful.");
+          await Get.find<AuthService>().fetchAndSetCurrentUser();
           // Navigate to the home screen
           Get.offAllNamed(AppRoutes.HOME);
         } else {
