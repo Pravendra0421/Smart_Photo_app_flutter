@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/group_membership_model.dart';
 import '../../../core/services/api_service.dart';
 import '../models/groupDetail_model.dart';
+import 'dart:io';
 class HomeRepository{
   final ApiService _apiService = ApiService();
   Future<List<GroupMembershipModel>> getUserGroup() async {
@@ -42,6 +43,22 @@ class HomeRepository{
       }
     }catch (e) {
       throw Exception('An error occurred while fetching group details: $e');
+    }
+  }
+  Future<void> uploadPhotos(String groupId, String imageUrl) async{
+    try{
+      final Map<String, dynamic> data = {
+        'url': imageUrl,
+      };
+      final response = await _apiService.post("upload/$groupId", data);
+      if(response.statusCode == 201){
+        print("Image is Uploaded SuccessFully on the server");
+        return;
+      }else{
+        throw Exception('Failed to create group. Status: ${response.statusCode}, Body: ${response.body}');
+      }
+    }catch (e) {
+      throw Exception('An error occurred while creating group: $e');
     }
   }
 }

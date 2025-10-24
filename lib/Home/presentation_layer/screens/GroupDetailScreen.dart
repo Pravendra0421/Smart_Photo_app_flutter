@@ -4,7 +4,7 @@ import '../controllers/groupDetailController.dart';
 import 'tabs/date_view.dart';
 import 'tabs/uploads_view.dart';
 import 'tabs/folders_view.dart';
-
+import 'widgets/upload_options_sheet.dart';
 class GroupDetailScreen extends StatelessWidget {
   const GroupDetailScreen({super.key});
 
@@ -54,7 +54,9 @@ class GroupDetailScreen extends StatelessWidget {
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Get.bottomSheet(const UploadOptionsSheet());
+        },
         label: const Text("Upload Pics"),
         icon: const Icon(Icons.upload),
       ),
