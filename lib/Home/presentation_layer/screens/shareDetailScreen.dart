@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../controllers/share_detail_controller.dart';
 // You MUST import the controller you intend to find;
 import '../controllers/groupDetailController.dart';
-
 class shareDetailScreen extends StatelessWidget {
   const shareDetailScreen({super.key});
 

@@ -11,15 +11,21 @@ class HomeController extends GetxController{
   final StorageService _storageService = StorageService();
   var isLoading = true.obs;
   var userGroups = <GroupMembershipModel>[].obs;
-
   // state for create Group Screen
   final groupNameController = TextEditingController();
+  late TextEditingController JoinCodeController;
   var selectedPrivacyType = 'PERSONAL'.obs;
   var groupImageFile = Rx<File?>(null);
   @override
   void onInit(){
     super.onInit();
     fetchUserGroups();
+    JoinCodeController = TextEditingController();
+  }
+  @override
+  void onClose(){
+    JoinCodeController.dispose();
+    super.onClose();
   }
   void fetchUserGroups() async {
     try{
@@ -38,7 +44,10 @@ class HomeController extends GetxController{
     groupNameController.clear();
     selectedPrivacyType.value = 'PERSONAL';
     groupImageFile.value = null;
-    Get.offAllNamed(AppRoutes.CREATEGROUP);
+    Get.toNamed(AppRoutes.CREATEGROUP);
+}
+void navigateToJoinGroup(){
+    Get.toNamed(AppRoutes.JOINGROUP);
 }
   void pickGroupImage() async {
     final ImagePicker picker = ImagePicker();
@@ -65,7 +74,6 @@ class HomeController extends GetxController{
       if (groupImageFile.value == null) {
         print("No image selected, using default URL.");
         imageUrl = "https://res.cloudinary.com/ddguf7pkw/image/upload/v1760703194/ChatGPT_Image_Oct_17_2025_05_42_29_PM_fcs2ii.png";
-
       } else {
         print("Image selected, uploading to Firebase Storage...");
         final String? uploadedUrl = await _storageService.uploadFile(
@@ -94,5 +102,21 @@ class HomeController extends GetxController{
       isLoading.value = false;
     }
   }
-  void joinGroup() => print("Join Group Tapped!");
+  void JoinGroup() async{
+    try{
+      Map<String,dynamic> Data ={
+        "uCode":JoinCodeController.text.trim()
+      };
+      await repository.joinGroup(Data);
+      Get.back();
+      Get.snackbar("success", "Join Group Successfully!");
+      fetchUserGroups();
+    }catch (e) {
+      Get.snackbar("Error", "PLEASE ENTER THE CORRECT CODE: ${e.toString()}");
+      print(e);
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
 }

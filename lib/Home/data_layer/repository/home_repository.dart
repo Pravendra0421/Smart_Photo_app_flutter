@@ -59,6 +59,19 @@ class HomeRepository{
       throw Exception('An error occurred while fetching group details: $e');
     }
   }
+  Future<void>joinGroup(Map<String,dynamic> Data) async{
+    try{
+      final response = await _apiService.post("groupmembership/add",Data);
+      if(response.statusCode == 201){
+        print("group join successfully");
+        return;
+      }else{
+        throw Exception('Failed to create group. Status: ${response.statusCode}, Body: ${response.body}');
+      }
+    }catch (e) {
+      throw Exception('An error occurred while creating group: $e');
+    }
+  }
   Future<void> uploadPhotos(String groupId, String imageUrl) async{
     try{
       final Map<String, dynamic> data = {

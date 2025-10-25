@@ -86,9 +86,7 @@ class SmartAppController extends GetxController {
       Get.snackbar("Error", "Something went wrong. Please try sending the OTP again.");
       return;
     }
-
     isLoading.value = true;
-
     try {
       // Create a credential using the OTP
       final AuthCredential credential = PhoneAuthProvider.credential(

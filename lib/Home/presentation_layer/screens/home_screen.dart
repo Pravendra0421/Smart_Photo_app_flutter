@@ -76,7 +76,7 @@ class EmptyGroupScreen extends StatelessWidget {
               style: TextStyle(color: Colors.grey)),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: controller.joinGroup,
+            onPressed: controller.navigateToJoinGroup,
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16),
               backgroundColor: const Color(0xFF2F80ED),
@@ -120,10 +120,33 @@ class FilledGroupScreen extends StatelessWidget {
           children: [
             const Text("Groups",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-            IconButton(
-              icon: const Icon(
-                  Icons.add_circle, color: Color(0xFF2F80ED), size: 32),
-              onPressed: controller.navigateToCreateGroup,
+            PopupMenuButton<String>(
+              onSelected: (String result) {
+                // Check which item was selected
+                if (result == 'create') {
+                  controller.navigateToCreateGroup();
+                } else if (result == 'join') {
+                  controller.navigateToJoinGroup();
+                }
+              },
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: 'create',
+                  child: ListTile(
+                    leading: Icon(Icons.add_circle_outline),
+                    title: Text('Create Group'),
+                  ),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'join',
+                  child: ListTile(
+                    leading: Icon(Icons.group_add_outlined),
+                    title: Text('Join Group'),
+                  ),
+                ),
+              ],
+              icon: const Icon(Icons.add_circle, color: Color(0xFF2F80ED), size: 32),
+              padding: EdgeInsets.zero,
             ),
           ],
         ),
