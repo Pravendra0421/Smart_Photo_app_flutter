@@ -10,6 +10,7 @@ import 'Home/presentation_layer/screens/GroupDetailScreen.dart';
 import 'Home/presentation_layer/screens/shareDetailScreen.dart';
 import 'Home/presentation_layer/screens/join_group_screen.dart';
 import 'Profile/presentation_layer/screens/profile_screen.dart';
+import 'Profile/presentation_layer/screens/Edit_screen.dart';
 import 'main_screen.dart';
 class AppRoutes {
   static const ONBOARDING ='/onboarding';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const JOINGROUP ='/join-group';
   static const PROFILEDETAIL ='/profile-detail';
   static const MAINSCREEN ='/main-screen';
+  static const EDITSCREEN ='/edit-screen';
 }
 
 class AppPages {
@@ -65,6 +67,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.PROFILEDETAIL,
         page: ()=>ProfileScreen(),
+    ),
+    GetPage(
+        name: AppRoutes.EDITSCREEN,
+        page: ()=>EditProfileScreen(),
     ),
   ];
 }

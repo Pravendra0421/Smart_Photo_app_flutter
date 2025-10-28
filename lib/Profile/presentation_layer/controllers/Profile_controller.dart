@@ -7,9 +7,18 @@ class ProfileController extends GetxController{
     final ProfileRepository repository = ProfileRepository();
     var isLoading =true.obs;
     var profileData = Rx<ProfileModel?>(null);
+    // late TextEditingController firstNameController;
+    // late TextEditingController lastNameController;
+    // late TextEditingController emailController;
+    // late TextEditingController phoneController;
+
     @override
     void onInit(){
         super.onInit();
+        // firstNameController =TextEditingController();
+        // lastNameController =TextEditingController();
+        // emailController =TextEditingController();
+        // phoneController=TextEditingController();
         fetchProfileDetail();
     }
     void fetchProfileDetail () async{
