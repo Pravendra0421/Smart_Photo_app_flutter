@@ -120,7 +120,7 @@ class SmartAppController extends GetxController {
           await Get.find<AuthService>().fetchAndSetCurrentUser();
 
           // Navigate to the home screen
-          Get.offAllNamed(AppRoutes.HOME);
+          Get.offAllNamed(AppRoutes.MAINSCREEN);
         } else {
           Get.snackbar("Server Error", "Could not save your data. Please try again.");
         }

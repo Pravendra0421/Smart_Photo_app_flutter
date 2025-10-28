@@ -1,0 +1,20 @@
+import '../models/profile_model.dart';
+import 'dart:convert';
+import '../../../core/services/api_service.dart';
+
+class ProfileRepository{
+  final ApiService _apiService = ApiService();
+  Future<ProfileModel> profileRepo() async {
+    try {
+      final response = await _apiService.get("user/getprofile");
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final userData = json.decode(response.body);
+        return ProfileModel.fromJson(userData);
+      } else {
+        throw Exception("Failed to fetch user profile. Status: ${response.statusCode}");
+      }
+    } catch (e) {
+      throw Exception("Error fetching profile: $e");
+    }
+  }
+}

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../controllers/home_controller.dart';
 import '../../data_layer/models/group_membership_model.dart';
 import '../../../routes.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -32,12 +33,12 @@ class HomeScreen extends StatelessWidget {
           return FilledGroupScreen(groups: controller.userGroups);
         }
       }),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.photo_library), label: 'My Photo'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'My Profile')
-      ]),
+      // bottomNavigationBar: BottomNavigationBar(items: const [
+      //   BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //   BottomNavigationBarItem(
+      //       icon: Icon(Icons.photo_library), label: 'My Photo'),
+      //   BottomNavigationBarItem(icon: Icon(Icons.person), label: 'My Profile')
+      // ]),
     );
   }
 }
