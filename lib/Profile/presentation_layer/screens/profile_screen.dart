@@ -12,9 +12,12 @@ class ProfileScreen extends StatelessWidget {
     final ProfileController controller = Get.put(ProfileController());
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => Get.back(),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.arrow_back),
+        //   onPressed: () => Get.back(),
+        // ),
+        title: Center(
+          child: Text("My Profile"),
         ),
         actions: [
           PopupMenuButton<String>(
@@ -25,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
                   print('Edit selected');
                   Get.toNamed(AppRoutes.EDITSCREEN);
                 case 'option2':
-                  print('Option 2 selected');
+                  print('Sign Out');
                   break;
               }
             },
@@ -36,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const PopupMenuItem<String>(
                 value: 'option2',
-                child: Text('Another Option'),
+                child: Text('Sign Out'),
               ),
             ],
           ),

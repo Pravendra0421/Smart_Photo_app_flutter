@@ -17,4 +17,19 @@ class ProfileRepository{
       throw Exception("Error fetching profile: $e");
     }
   }
+  Future<bool> updateProfileRepo(Map<String,dynamic> updateData) async{
+    try{
+      final response = await _apiService.put("user/update", updateData);
+      if(response.statusCode == 201 || response.statusCode == 200 || response.statusCode == 204){
+        print("Backend profile update successful.");
+        return true;
+      }else{
+        print("Backend profile update failed. Status: ${response.statusCode}, Body: ${response.body}");
+        return false;
+      }
+    }catch (e) {
+      print("Error updating profile: $e");
+      return false;
+    }
+  }
 }

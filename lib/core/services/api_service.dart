@@ -42,6 +42,12 @@ class ApiService {
     final body = json.encode(data);
     return await http.post(url, headers: headers, body: body);
   }
+  Future<http.Response> put(String endpoint, Map<String, dynamic> data) async {
+    final url = Uri.parse('$_baseUrl/$endpoint');
+    final headers = await _getHeaders();
+    final body = json.encode(data);
+    return await http.put(url, headers: headers, body: body);
+  }
 
 // You can also add methods for PUT, DELETE, etc.
 }
