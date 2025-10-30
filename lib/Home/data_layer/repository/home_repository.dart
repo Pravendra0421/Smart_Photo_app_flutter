@@ -4,6 +4,7 @@ import '../models/group_membership_model.dart';
 import '../../../core/services/api_service.dart';
 import '../models/groupDetail_model.dart';
 import '../models/share_model.dart';
+import '../models/match_response_model.dart';
 import 'dart:io';
 class HomeRepository{
   final ApiService _apiService = ApiService();
@@ -44,6 +45,20 @@ class HomeRepository{
       }
     }catch (e) {
       throw Exception('An error occurred while fetching group details: $e');
+    }
+  }
+  Future<MatchResponseModel>getMatchedPhotos(Map<String,dynamic>data) async{
+    try{
+      final response = await _apiService.post("match", data);
+      if(response.statusCode == 201 || response.statusCode == 200){
+        final jsonData = json.decode(response.body);
+        return MatchResponseModel.fromJson(jsonData);
+      }else{
+        throw Exception(
+            'Failed to get matches. Status: ${response.statusCode}, Body: ${response.body}');
+      }
+    }catch (e) {
+      throw Exception('An error occurred while matching photos: $e');
     }
   }
   Future<shareModel> getShareDetail(String groupId) async {

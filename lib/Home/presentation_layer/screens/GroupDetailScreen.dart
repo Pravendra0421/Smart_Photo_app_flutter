@@ -5,6 +5,7 @@ import 'tabs/date_view.dart';
 import 'tabs/uploads_view.dart';
 import 'tabs/folders_view.dart';
 import 'widgets/upload_options_sheet.dart';
+import 'tabs/my_photos_view.dart';
 class GroupDetailScreen extends StatelessWidget {
   const GroupDetailScreen({super.key});
 
@@ -48,7 +49,7 @@ class GroupDetailScreen extends StatelessWidget {
             DateView(photosByDate: controller.photosByDate),
             UploadsView(myUploads: controller.myUploads),
             const FoldersView(),
-            const Center(child: Text("My Photos - Coming Soon!")),
+            const MyPhotosView(),
           ],
         );
       }),
