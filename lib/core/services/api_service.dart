@@ -48,6 +48,4 @@ class ApiService {
     final body = json.encode(data);
     return await http.put(url, headers: headers, body: body);
   }
-
-// You can also add methods for PUT, DELETE, etc.
 }

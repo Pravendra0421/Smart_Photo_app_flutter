@@ -87,11 +87,11 @@ class _TakeSelfieScreenState extends State<TakeSelfieScreen> {
           ),
           // Face Outline Overlay
           // You'll need an SVG or PNG asset for the outline
-          Image.asset(
-            'assets/images/face_outline.png', // <-- Make sure you have this asset
-            width: MediaQuery.of(context).size.width * 0.7, // Adjust size as needed
-            color: Colors.white.withOpacity(0.8), // Make it semi-transparent white
-          ),
+          // Image.asset(
+          //   'assets/images/face_outline.png', // <-- Make sure you have this asset
+          //   width: MediaQuery.of(context).size.width * 0.7, // Adjust size as needed
+          //   color: Colors.white.withOpacity(0.8), // Make it semi-transparent white
+          // ),
           // Instructions Text
           Positioned(
             top: 50,
