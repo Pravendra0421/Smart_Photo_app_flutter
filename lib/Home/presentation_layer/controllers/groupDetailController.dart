@@ -35,7 +35,7 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
       final details = await repository.getGroupDetails(groupId);
       groupDetails.value = details;
       _processPhotos(details.photos);
-      await findMyPhotos(details.photos);
+       findMyPhotos(details.photos);
     }catch (e) {
       Get.snackbar("Error", "Could not load group details.");
     } finally {
@@ -52,6 +52,7 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
   }
   Future<void> findMyPhotos(List<PhotoModel> allPhotos) async{
     try{
+      isMatchingPhotos.value = true;
       final AuthService authService = Get.find<AuthService>();
       final String? selfieUrl = authService.currentUser.value?.imageUrl;
       if (selfieUrl == null || selfieUrl.isEmpty) {
