@@ -142,11 +142,12 @@ class ProfileController extends GetxController{
     void SignOutController () async{
         try{
             isLoading.value = true;
+            await _auth.signOut();
+            _authService.logout();
+            Get.offAllNamed(AppRoutes.PHONELOGIN);
 
         }catch (e) {
             Get.snackbar("Error", "Could not load Profile details.");
-        } finally {
-            isLoading.value = false;
         }
     }
 }

@@ -39,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               const PopupMenuItem<String>(
                 value: 'option2',
-                child: Text('Sign Out'),
+                child: Text('Help'),
               ),
             ],
           ),
@@ -68,7 +68,9 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    controller.SignOutController();
+                  },
                   child: Text(
                     "Sign Out",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.red),
