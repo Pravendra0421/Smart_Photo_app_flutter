@@ -14,7 +14,7 @@ class CreateGroupScreen extends StatelessWidget {
       appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            onPressed: controller.GetBack
+            onPressed: () => Get.back(),
           ),
           title: const Text("Create a Group")),
       body: SingleChildScrollView(

@@ -9,6 +9,7 @@ import 'Home/presentation_layer/screens/create_group_screen.dart';
 import 'Home/presentation_layer/screens/GroupDetailScreen.dart';
 import 'Home/presentation_layer/screens/shareDetailScreen.dart';
 import 'Home/presentation_layer/screens/join_group_screen.dart';
+import 'Home/presentation_layer/screens/groupSetting_screen.dart';
 import 'Profile/presentation_layer/screens/profile_screen.dart';
 import 'Profile/presentation_layer/screens/Edit_screen.dart';
 import 'Profile/presentation_layer/screens/take_selfie_screen.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const MAINSCREEN ='/main-screen';
   static const EDITSCREEN ='/edit-screen';
   static const TAKESELFIE ='/take-selfie';
+  static const GROUPSETTING ='/group-setting';
 }
 
 class AppPages {
@@ -77,6 +79,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.TAKESELFIE,
         page: ()=>TakeSelfieScreen(),
+    ),
+    GetPage(
+        name: AppRoutes.GROUPSETTING,
+        page: ()=>GroupSettingScreen(),
     ),
   ];
 }

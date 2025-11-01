@@ -23,8 +23,46 @@ class GroupDetailScreen extends StatelessWidget {
           ],
         )),
         actions: [
-          IconButton(icon: const Icon(Icons.share_outlined), onPressed: controller.navigateToShareDetail,),
-          IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.share_outlined),
+            onPressed: controller.navigateToShareDetail,
+          ),
+          PopupMenuButton<String>(
+            onSelected: (String value) {
+              // Fixed typo: 'Value' changed to 'value'
+              if (value == 'Setting') {
+                print("Settings selected");
+                controller.NavigateToGroupSetting();
+              } else if (value == 'Help') {
+                print("Help selected");
+                // controller.goToHelp();
+              }
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: "Setting",
+                child: Row(
+                  children: [
+                    Icon(Icons.settings, size: 20, color: Colors.black54),
+                    SizedBox(width: 12), // Pro-tip: 12 is nice spacing
+                    Text("Settings"),
+                  ],
+                ),
+              ),
+              const PopupMenuItem<String>(
+
+                value: "Help",
+                child: Row(
+                  children: [
+                    Icon(Icons.help, size: 20, color: Colors.black54),
+                    SizedBox(width: 12),
+                    Text("Help"),
+                  ],
+                ),
+              ),
+            ],
+            icon: const Icon(Icons.more_vert),
+          ),
         ],
         bottom: TabBar(
             controller: controller.tabController,
