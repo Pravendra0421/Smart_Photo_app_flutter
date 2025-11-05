@@ -30,7 +30,7 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
     Get.toNamed(AppRoutes.SHAREDETAIL);
   }
   void NavigateToGroupSetting()async{
-    Get.toNamed(AppRoutes.GROUPSETTING);
+    Get.toNamed(AppRoutes.GROUPSETTING,arguments: groupId);
   }
   void fetchGroupDetails() async{
     try{
