@@ -35,7 +35,11 @@ class ApiService {
     final headers = await _getHeaders();
     return await http.get(url, headers: headers);
   }
-
+  Future<http.Response> delete(String endpoint) async {
+    final url = Uri.parse('$_baseUrl/$endpoint');
+    final headers = await _getHeaders();
+    return await http.delete(url, headers: headers);
+  }
   // A central method for all POST requests
   Future<http.Response> post(String endpoint, Map<String, dynamic> data) async {
     final url = Uri.parse('$_baseUrl/$endpoint');

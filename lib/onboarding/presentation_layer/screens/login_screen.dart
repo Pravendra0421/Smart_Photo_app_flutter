@@ -22,12 +22,7 @@ class LoginScreen extends StatelessWidget {
                 () => Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Enter your phone number to login or register",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 30),
+
 
                 // Phone Number Text Field
                 TextField(

@@ -9,12 +9,14 @@ import 'Home/presentation_layer/screens/create_group_screen.dart';
 import 'Home/presentation_layer/screens/GroupDetailScreen.dart';
 import 'Home/presentation_layer/screens/shareDetailScreen.dart';
 import 'Home/presentation_layer/screens/join_group_screen.dart';
+import 'Home/presentation_layer/screens/image_pager_screen.dart';
 // import 'Home/presentation_layer/screens/groupSetting_screen.dart';
 import 'Profile/presentation_layer/screens/profile_screen.dart';
 import 'Profile/presentation_layer/screens/Edit_screen.dart';
 import 'Profile/presentation_layer/screens/take_selfie_screen.dart';
 import 'GroupSetting/presentation_layer/screens/group_setting_screen.dart';
 import 'GroupSetting/presentation_layer/screens/add_member_screen.dart';
+
 import 'main_screen.dart';
 class AppRoutes {
   static const ONBOARDING ='/onboarding';
@@ -31,6 +33,7 @@ class AppRoutes {
   static const TAKESELFIE ='/take-selfie';
   static const GROUPSETTING ='/group-setting';
   static const ADDMEMBER ='/add-member';
+  static const IMAGEPAGER ='/image-pager';
 }
 
 class AppPages {
@@ -90,6 +93,10 @@ class AppPages {
     GetPage(
         name: AppRoutes.ADDMEMBER,
         page: ()=>AddMemberScreen(),
+    ),
+    GetPage(
+        name: AppRoutes.IMAGEPAGER,
+        page: ()=>ImagePagerScreen(),
     ),
   ];
 }

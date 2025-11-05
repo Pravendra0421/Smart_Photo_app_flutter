@@ -103,4 +103,15 @@ class HomeRepository{
       throw Exception('An error occurred while creating group: $e');
     }
   }
+  Future<void> DeletePhoto(String photoId) async {
+    try{
+      final response = await _apiService.delete('upload/$photoId');
+      print("DELETE PHOTO STATUS CODE: ${response.statusCode}");
+      if (response.statusCode < 200 || response.statusCode >= 300) {
+        throw Exception('Failed to delete photo. Status: ${response.statusCode}');
+      }
+    }catch (e) {
+      throw Exception('An error occurred while deleting photo: $e');
+    }
+  }
 }

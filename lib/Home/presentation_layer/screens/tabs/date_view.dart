@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../data_layer/models/photo_model.dart';
-
+import '../../../../routes.dart';
+import '../../controllers/groupDetailController.dart';
 class DateView extends StatelessWidget {
   final Map<String, List<PhotoModel>> photosByDate;
   const DateView({super.key, required this.photosByDate});
 
   @override
   Widget build(BuildContext context) {
+    final GroupDetailController detailController = Get.find();
     if (photosByDate.isEmpty) return const Center(child: Text("No photos in this group."));
 
     final dates = photosByDate.keys.toList();
@@ -31,7 +34,20 @@ class DateView extends StatelessWidget {
               ),
               itemCount: photos.length,
               itemBuilder: (context, photoIndex) {
-                return Image.network(photos[photoIndex].url, fit: BoxFit.cover);
+                final photo = photos[photoIndex];{
+                  return GestureDetector(
+                    onTap: (){
+                      final List<PhotoModel> allPhoto = detailController.groupDetails.value!.photos;
+                      final int initialIndex = allPhoto.indexWhere((p)=>p.id == photo.id);
+                      Get.toNamed(AppRoutes.IMAGEPAGER,arguments: {
+                        'photos':allPhoto,
+                        'index':initialIndex
+                      });
+                    },
+                    child: Image.network(photo.url, fit: BoxFit.cover),
+                  );
+                }
+                // return Image.network(photos[photoIndex].url, fit: BoxFit.cover);
               },
             ),
           ],

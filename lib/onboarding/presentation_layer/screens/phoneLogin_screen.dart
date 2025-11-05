@@ -133,13 +133,7 @@ class Login extends StatelessWidget {
         Row(
           children: [
             // Country Code Dropdown
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300),
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
+
             // Number Input
             Expanded(
               child: TextField(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../controllers/onboarding_main_controller.dart';
+import '../../../routes.dart';
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -23,7 +24,6 @@ class OnboardingScreen extends StatelessWidget {
 
         return Stack(
           children: [
-            // Layer 1: Background Image
             Positioned.fill(
               child: Image.network(
                 currentPageData.bgUrl,
@@ -107,7 +107,7 @@ class OnboardingScreen extends StatelessWidget {
           GestureDetector(
             onTap: () {
               // Handle skip logic, e.g., navigate to home
-              Get.snackbar("Action", "Skip button tapped!");
+              Get.toNamed(AppRoutes.PHONELOGIN);
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
