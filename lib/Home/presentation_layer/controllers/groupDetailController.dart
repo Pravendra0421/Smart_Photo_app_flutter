@@ -19,7 +19,7 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
   var photosByDate = <String, List<PhotoModel>>{}.obs;
   var myUploads = <PhotoModel>[].obs;
   var isMatchingPhotos = false.obs;
-  var myMatchedPhoto =<String>[].obs;
+  var myMatchedPhoto =<PhotoModel>[].obs;
   @override
   void onInit(){
     super.onInit();
@@ -56,18 +56,25 @@ class GroupDetailController extends GetxController with GetSingleTickerProviderS
   Future<void> findMyPhotos(List<PhotoModel> allPhotos) async{
     try{
       isMatchingPhotos.value = true;
+      myMatchedPhoto.clear();
       final AuthService authService = Get.find<AuthService>();
       final String? selfieUrl = authService.currentUser.value?.imageUrl;
       if (selfieUrl == null || selfieUrl.isEmpty) {
         throw Exception("User profile image (selfie) not found.");
       }
       final List<String>allPhotoUrls = allPhotos.map((photo)=>photo.url).toList();
+      if (allPhotoUrls.isEmpty) {
+        isMatchingPhotos.value = false;
+        return;
+      }
       final Map<String,dynamic> data ={
         "selfie":selfieUrl,
         "images":allPhotoUrls,
       };
       final MatchResponseModel matchResponse = await repository.getMatchedPhotos(data);
-      myMatchedPhoto.assignAll(matchResponse.matches);
+      final Set<String> matchedUrls = matchResponse.matches.toSet();
+      final List<PhotoModel> matchedPhotoModels = allPhotos.where((photo)=>matchedUrls.contains(photo.url)).toList();
+      myMatchedPhoto.assignAll(matchedPhotoModels);
     }catch (e) {
       Get.snackbar("Face Match Error", "Could not find your photos: ${e.toString()}");
     } finally {
